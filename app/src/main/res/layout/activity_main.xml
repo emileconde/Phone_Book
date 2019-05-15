@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="clickEventHandler"
+            type="com.example.android.conde.com.contacts.MainActivity.ClickEventHandler"/>
+    </data>
+
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/main"
+    >
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        >
+    <include layout="@layout/content"
+        android:id="@+id/recycler_content"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="@{clickEventHandler::onFabClicked}"
+        android:src="@drawable/baseline_add_black_48dp"
+        android:layout_gravity="bottom|end"
+        />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
+</layout>

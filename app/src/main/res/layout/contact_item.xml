@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="contact"
+            type="com.example.android.conde.com.contacts.db.entity.Contact"/>
+        <variable
+            name="editButtonCLickhandler"
+            type="com.example.android.conde.com.contacts.adapter.ContactRecyclerViewAdapter.ContactViewHolder.EditButtonClickHandler"/>
+
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="15dp"
+    app:cardCornerRadius="2dp"
+    android:layout_margin="5dp"
+    android:padding="2dp"
+    >
+<RelativeLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    >
+
+    <TextView
+        android:id="@+id/tv_contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@{contact.firstName}"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_contact_name"
+        android:layout_margin="5dp"
+        tools:text="@{contact.email + contact.lastName}"
+        android:textStyle="italic"
+        />
+
+    <TextView
+        android:id="@+id/tv_contact_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_contact_email"
+        android:layout_margin="5dp"
+        tools:text="@{contact.phoneNumber}"
+        />
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--/>-->
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_edit"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_black_24dp"
+        android:background="@android:color/white"
+        android:onClick="@{editButtonCLickhandler::onEditButtonClicked}"
+        />
+
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
